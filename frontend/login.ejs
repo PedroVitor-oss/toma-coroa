@@ -1,13 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home game</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-    <h1>tela de login  </h1>
-    <p>para logar em jogardor já existente ou para criar um novo</p>
+    <header class="top-navbar">
+        <a href="/" class="back">< voltar</a>
+    </header>
+    <section id="card-home" class="purplebg justify-end">
+        <div class="cont-forms">
+            <form action="/login" method="post">
+                <h1>Bem vindo de volta</h1>
+                <p>Que bom que voltou, vamor voltar a fazer coisas fodinhas</p>
+                <div class="cont-inputs">
+
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Usuario" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit">Jogar</button>
+                    <button class="link" onclick="changeForm()">criar conta</button>
+                </div>
+            </form>
+            <form action="/login" method="post">
+                <h1>Vamos criar uma hitoria juntos?</h1>
+                <p>Que bom que esta aqui vamos montar uma conta para fazer historia nesse jogo.</p>
+                <div class="cont-inputs">
+
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Usuario" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit">Jogar</button>
+                    <button class="link" onclick="changeForm()">já tem  conta?</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const forms = document.querySelectorAll('.cont-forms form');
+        let showingLogin = true;
+
+        function changeForm() {
+            forms.forEach(form => form.style.display = 'none');
+            if (showingLogin) {
+                forms[1].style.display = 'block';
+            } else {
+                forms[0].style.display = 'block';
+            }
+            showingLogin = !showingLogin;
+        }
+
+        // Initialize by showing the login form
+        changeForm();
+    </script>
 </body>
+
 </html>
